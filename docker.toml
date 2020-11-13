@@ -1,0 +1,31 @@
+# The image name.  The host and home volume name are set to the same string,
+# but with the slash replaced by a hyphen.
+name = "geode/home"
+
+# The parent of this profile's Docker image.
+base = "ubuntu:groovy"
+
+# Your user name and preferences in the guest (container) environment.
+user = "jeff"
+locale = "en_US.UTF-8"
+timezone = "America/New_York"
+
+# The command Geode (or Docker) should run by default, as an argv array.
+command = ["conf/bin/geode-main.zsh"]
+
+# The command Geode should run (once) to initialize your home volume.
+init = ["conf/bin/geode-init.zsh"]
+
+# Host directories to be mounted in containers.  Paths may be either absolute,
+# or relative to your home directory.
+[bind]
+"/Users" = "/Users"
+".ssh" = ".ssh"
+"usr/share/geode/profiles/home" = "conf"
+
+# Docker volumes to mount (in addition to your home directory).
+[volumes]
+
+# Ports to publish on the host machine.  Each host port (key) is mapped to the
+# specified guest port (value).
+[ports]

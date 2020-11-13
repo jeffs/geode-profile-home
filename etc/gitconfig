@@ -1,0 +1,24 @@
+[alias]
+	br     = branch
+	ci     = commit
+	co     = checkout
+	di     = diff
+	st     = status
+	flog   = log --first-parent --oneline
+	spliff = difftool -y
+[color]
+	ui = true
+[core]
+	excludesfile = ~/conf/etc/gitexcludes
+[diff]
+	# https://github.blog/2016-06-13-git-2-9-has-been-released/#beautiful-diffs
+	compactionHeuristic = true
+[grep]
+	extendRegexp = true
+[push]
+	default = simple
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[user]
+	name = Jeff Schwab
+	email = jeff@unbuggy.com

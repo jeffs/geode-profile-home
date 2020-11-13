@@ -1,0 +1,37 @@
+# Apple droppings
+.DS_Store
+
+# Editor droppings
+.idea/
+.*.swp
+*~
+\#*#
+.netrwhist
+/doc/tags
+
+# Python droppings
+*.pyc
+__pycache__/
+
+# Java droppings
+*.class
+*.jar
+
+# Native code droppings
+*.o
+*.so
+*.ar
+*.dylib
+
+# SBT droppings
+target/
+
+# Markdown output
+*.md.html
+
+# NPM package cache
+/node_modules
+
+# Variable data, as described in the Filesystem Hierarchy Standard:
+# https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard
+/var/

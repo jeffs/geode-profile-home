@@ -1,0 +1,87 @@
+# VARIABLES
+
+COMPLETION_WAITING_DOTS="true"
+DISABLE_AUTO_TITLE="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Note that zsh-syntax-highlighting must be the last plugin sourced.
+# https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md
+plugins=(zsh-syntax-highlighting)
+
+source $ZSH/oh-my-zsh.sh
+
+# Use precmd to format a nice separator for use in a colorized PROMPT.
+typeset -H prompt_bar
+PROMPT=$'\n%{$fg[cyan]%}(%h) $prompt_bar\n$%{$reset_color%} '
+precmd() {
+    local d=$(dirs -p | head -1)
+    local -i n=$(($COLUMNS - ${#d} - 9))
+    prompt_bar="$d $(printf '─%.0s' $(=/usr/bin/seq $n))"
+}
+
+# OPTIONS
+
+setopt rmstarsilent	# Don't confirm rm *.
+
+unsetopt autocd
+unsetopt auto_pushd
+unsetopt correct_all
+unsetopt hist_verify
+unsetopt share_history
+
+# ALIASES
+
+alias bat=batcat
+alias ls=exa
+alias tree='exa --tree --ignore-glob=".git|mod|sumdb"'
+alias t=tree
+alias h=history
+alias u='c ..'
+alias uu='c ../..'
+alias p3=python3
+alias play='mc ~/var/play/rust && nvim src/.go'
+for i in `seq 9`; do alias t$i="t -L$i"; done
+for s in br ci co di pull push st; do alias $s="git $s"; done
+
+# FUNCTIONS
+
+c() { cd "$@" && ls; }
+cg() { c $(git rev-parse --show-toplevel); }
+cl() { mc ~/file/log/$(date +%Y/%m/%d); }
+e() { ${EDITOR:-nvim} "$@"; }
+mc() { mkdir -p $1 && c $1; }
+
+# Load nvm lazily, since merely sourcing its definition takes ~350ms.
+function nvm() {
+    # Install NVM if necessary.
+    if [ ! -d ~/.nvm ]; then
+        ~/conf/bin/install-node.zsh || return 1
+    fi
+
+    unset -f nvm
+    export NVM_DIR=~/.nvm
+    source $NVM_DIR/nvm.sh
+    source $NVM_DIR/bash_completion
+    nvm "$@"
+}
+
+function node() {
+    unset -f node
+    [[ -v NVM_DIR ]] || nvm use --lts
+    node "$@"
+}
+
+# Load lf lazily, mostly because installing it eagerly slows down geode build.
+lfcd() {
+    if [ ! -d ~/go/pkg/mod/github.com/gokcehan ]; then
+        ~/conf/bin/install-lf.zsh || return 1
+    fi
+
+    unset -f lfcd
+    source $(ls ~/go/pkg/mod/github.com/gokcehan/lf@*/etc/lfcd.sh | tail -1)
+    lfcd "$@"
+}
+
+# BINDINGS
+
+bindkey -s '^o' 'lfcd\n'

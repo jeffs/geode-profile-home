@@ -1,0 +1,9 @@
+export EXA_COLORS='*.md=;'
+export FZF_DEFAULT_COMMAND='fd --type=f'
+export LESS='-FR -j5'
+export PAGER=less
+export READNULLCMD=$PAGER
+export RIPGREP_CONFIG_PATH=~/conf/etc/ripgreprc
+export ZSH=~/.oh-my-zsh
+
+path=(~/usr/bin ~/.cargo/bin ~/go/bin $path)
