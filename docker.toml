@@ -19,9 +19,12 @@ init = ["conf/bin/geode-init.zsh"]
 # Host directories to be mounted in containers.  Paths may be either absolute,
 # or relative to your home directory.
 [bind]
-"/Users" = "/Users"
+"/" = "/Users"
+"/tmp" = "var/tmp"
 ".ssh" = ".ssh"
 "usr/share/geode/profiles/home" = "conf"
+Desktop = "desk"
+Downloads = "down"
 
 # Docker volumes to mount (in addition to your home directory).
 [volumes]
