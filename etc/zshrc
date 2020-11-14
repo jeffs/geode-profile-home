@@ -80,6 +80,14 @@ lfcd() {
     lfcd "$@"
 }
 
+gh() {
+    if [ ! -x ~/usr/bin/gh ]; then
+        ~/conf/bin/install-gh.zsh || return 1
+    fi
+    unset -f gh
+    gh "$@"
+}
+
 # BINDINGS
 
 bindkey -s '^o' 'lfcd\n'
