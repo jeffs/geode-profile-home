@@ -31,8 +31,6 @@ unsetopt share_history
 
 # ALIASES
 
-alias bat=batcat
-alias fd=fdfind
 alias ls=exa
 alias tree='exa --tree --ignore-glob=".git|mod|sumdb"'
 alias t=tree

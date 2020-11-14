@@ -25,3 +25,8 @@ done
 for d in back swap undo view; do
     mkdir -p ~/var/nvim/$d
 done
+
+# Link programs that have weird names on Ubuntu.
+mkdir -p ~/usr/bin
+ln -s $(which batcat) ~/usr/bin/bat
+ln -s $(which fdfind) ~/usr/bin/fd
