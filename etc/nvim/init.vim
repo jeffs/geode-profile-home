@@ -75,7 +75,7 @@ nnoremap <silent> <Leader>e vap:w    !~/conf/bin/tmux-send<CR><CR>}
 vnoremap <silent> <Leader>e :w       !~/conf/bin/tmux-send<CR><CR>
 
 " Plugin integration
-set runtimepath+=/usr/local/opt/fzf	" https://github.com/junegunn/fzf
+set runtimepath+=~/opt/fzf  " https://github.com/junegunn/fzf
 nnoremap <silent> <Leader>o :FZF<CR>
 nnoremap <Leader>n :NERDTreeToggle<CR>
 vnoremap <silent> <Leader>t :<C-u>execute "'<,'>!tabulate" v:count<CR>
