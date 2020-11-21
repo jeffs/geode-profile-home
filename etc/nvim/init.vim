@@ -62,17 +62,20 @@ set directory=~/var/nvim/swap,.
 set spellfile=~/var/nvim/spell/spellfile.utf8.add
 
 " Desktop integration
-set clipboard+=unnamedplus      " map "+ register to system clipboard
 set visualbell                  " flash instead of blinking
+
+" NOTE: This setting breaks rectangular yank/put.
+set clipboard+=unnamedplus      " map "+ register to system clipboard
 
 " Convenience
 nnoremap Y y$
 abbrev 0vomit 🤮
+abbrev 0yin_yang ☯️
 
 " Tmux integration: Send a line, paragraph, or selection to the bottom pane.
-nnoremap <silent> <C-j>     :.w      !~/conf/bin/tmux-send<CR><CR>j
-nnoremap <silent> <Leader>e vap:w    !~/conf/bin/tmux-send<CR><CR>}
-vnoremap <silent> <Leader>e :w       !~/conf/bin/tmux-send<CR><CR>
+nnoremap <silent> <C-j>     :.w      !tmux-send<CR><CR>j
+nnoremap <silent> <Leader>e vap:w    !tmux-send<CR><CR>}
+vnoremap <silent> <Leader>e :w       !tmux-send<CR><CR>
 
 " Plugin integration
 set runtimepath+=~/opt/fzf  " https://github.com/junegunn/fzf
