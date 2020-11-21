@@ -33,36 +33,34 @@ ENV TZ={{.TimeZone}}
 #
 # network:
 #       curl            # HTTP utility
+#	net-tools	# ifconfig et al
+#
 #       netcat          # TCP/IP Swiss army knife
 #       (netcat-traditional)
 #
 # basic commands:
 #       git             # version control system
-#       man             # manual page viewer
-#
-# file types:
 #       jq              # parses, queries, transforms, and formats JSON
+#       man             # manual page viewer
 #       markdown        # converts Markdown files to HTML
+#	sudo		# runs commands as superuser
 #       zip             # creates or expands .zip compressed archives
 #
 # enhanced commands:
 #       bat             # alternative to cat
 #       exa             # alternative to ls and tree
-#
-#       neovim          # fork of vim
-#
 #       fd (fd-find)    # alternative to find
+#       neovim          # fork of vim
 #       ripgrep         # alternative to grep
-#
 #       sl              # steam locomotive when you mistype ls
 #       tmux            # terminal multiplexer
 #       zsh             # alternative to sh
 #
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -qqy \
     build-essential golang python3-venv \
-    bat exa fd-find git neovim ripgrep sl tmux zsh \
-    curl netcat-traditional net-tools sudo \
-    jq man markdown zip
+    curl net-tools netcat-traditional \
+    git jq man markdown sudo zip \
+    bat exa fd-find neovim ripgrep sl tmux zsh
 
 # Create myself, and give myself super powers.
 #
