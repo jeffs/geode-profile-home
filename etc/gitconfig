@@ -19,8 +19,6 @@
 	ff = only
 [push]
 	default = simple
-[url "git@github.com:"]
-	insteadOf = https://github.com/
 [user]
 	name = Jeff Schwab
 	email = jeff@unbuggy.com

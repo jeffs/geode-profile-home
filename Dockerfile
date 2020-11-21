@@ -33,6 +33,7 @@ ENV TZ={{.TimeZone}}
 #
 # network:
 #       curl            # HTTP utility
+#	libssl-dev	# OpenSSL libraries; required by cargo-audit
 #	net-tools	# ifconfig et al
 #
 #       netcat          # TCP/IP Swiss army knife
@@ -58,7 +59,7 @@ ENV TZ={{.TimeZone}}
 #
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -qqy \
     build-essential golang python3-venv \
-    curl net-tools netcat-traditional \
+    curl libssl-dev net-tools netcat-traditional \
     git jq man markdown sudo zip \
     bat exa fd-find neovim ripgrep sl tmux zsh
 

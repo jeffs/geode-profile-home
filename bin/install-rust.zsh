@@ -4,3 +4,5 @@
 curl -fsSLo /tmp/rustup.sh https://sh.rustup.rs/
 sh /tmp/rustup.sh -q -y --no-modify-path
 rm /tmp/rustup.sh
+
+cargo install cargo-audit --features=fix
