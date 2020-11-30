@@ -62,6 +62,7 @@ set directory=~/var/nvim/swap,.
 set spellfile=~/var/nvim/spell/spellfile.utf8.add
 
 " Desktop integration
+set mouse=a
 set visualbell                  " flash instead of blinking
 
 " NOTE: This setting breaks rectangular yank/put.

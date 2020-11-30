@@ -6,11 +6,12 @@ abbrev p! print!
 abbrev pl! println!
 
 "nnoremap <Leader>b :up<CR>:bel vsplit \| ter cargo build<CR>
-nnoremap <silent> <Leader>b :up<CR>:!tmux-build.zsh<CR><CR>
-nnoremap <Leader>c :up<CR>:bel vsplit \| ter cargo check<CR>
-nnoremap <Leader>f :call Format()<CR>
-nnoremap <Leader>l :exe "!cargo clean -p" fnamemodify(getcwd(), ':t') <CR>
-nnoremap <Leader>r :up<CR>:bel vsplit \| ter cargo --quiet run<CR>
+nnoremap <silent> <Leader>b :up<CR>:!./scripts/tmux-check.zsh<CR><CR>
+nnoremap <silent> <Leader>c :up<CR>:bel vsplit \| ter cargo check<CR>
+nnoremap <silent> <Leader>f :call Format()<CR>
+nnoremap <silent> <Leader>l :exe "!cargo clean -p" fnamemodify(getcwd(), ':t') <CR>
+"nnoremap <silent> <Leader>r :up<CR>:bel vsplit \| ter cargo --quiet run<CR>
+nnoremap <silent> <Leader>r :up<CR>:!./scripts/tmux-run.zsh<CR><CR>
 
 inoremap <buffer> <silent> <Esc> <Esc>:up<CR>
 nnoremap <buffer> <silent> <Esc> <Esc>:up<CR>
@@ -30,8 +31,13 @@ hi Todo ctermbg=NONE ctermfg=darkgray
 " The Rust core team apparently used to suggest a similar dichotomy, but
 " dropped it for simplicity.  See also this discussion from 2014:
 " https://github.com/rust-lang/rust-guidelines/pull/12#issuecomment-48007836
+"
+" As of 2018, some folks seem(ed) to share this assessment:
+" https://internals.rust-lang.org/t/style-guide-for-comments/8995/2
 set colorcolumn=101 textwidth=79
 set nowrap number
+
+let &breakindentopt = "shift:" . (&shiftwidth * 2)
 
 function Format()
 	let save_pos = getpos(".")
