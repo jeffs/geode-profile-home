@@ -29,7 +29,7 @@ ENV TZ={{.TimeZone}}
 #	golang		# The Go programming language
 #
 #       python3         # Python 3 with pip, venv, and headers
-#       (python3-pip python3-venv)
+#       (mypy python3-pip python3-venv)
 #
 # network:
 #       curl            # HTTP utility
@@ -58,10 +58,11 @@ ENV TZ={{.TimeZone}}
 #       zsh             # alternative to sh
 #
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -qqy \
-    build-essential golang python3-venv \
+    build-essential golang python3-pip python3-venv \
     curl libssl-dev net-tools netcat-traditional \
     git jq man markdown sudo zip \
-    bat exa fd-find neovim ripgrep sl tmux zsh
+    bat exa fd-find neovim ripgrep sl tmux zsh \
+ && python3 -m pip install mypy
 
 # Create myself, and give myself super powers.
 #
