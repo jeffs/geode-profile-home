@@ -15,8 +15,10 @@ o=~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 git clone --depth=1 $u $o
 
 # Symlink dot-files.
-mkdir -p ~/.config
+mkdir -p ~/.config/bat ~/.config/procps
 ln -s ~/conf/etc/nvim ~/.config/nvim
+ln -s ~/conf/etc/batrc ~/.config/bat/config
+ln -s ~/conf/etc/toprc ~/.config/procps/toprc
 for f in gitconfig tmux.conf zprofile zshrc; do
     ln -fs ~/conf/etc/$f ~/.$f
 done
