@@ -94,6 +94,9 @@ gh() {
 
 bindkey -s '^o' 'lfcd\n'
 
+# https://github.com/ohmyzsh/ohmyzsh/issues/5071
+bindkey '^[l' down-case-word
+
 if [ -d ~/opt/fzf ]; then
     source ~/opt/fzf/shell/completion.zsh 2>/dev/null
     source ~/opt/fzf/shell/key-bindings.zsh
