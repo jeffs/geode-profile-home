@@ -15,6 +15,8 @@ nnoremap <silent> <Leader>r :up<CR>:!./scripts/tmux-run.zsh<CR><CR>
 
 inoremap <buffer> <silent> <Esc> <Esc>:up<CR>
 nnoremap <buffer> <silent> <Esc> <Esc>:up<CR>
+inoremap <buffer> <C-g> <Esc>
+inoremap <buffer> <C-g> <Esc>
 
 hi Todo ctermbg=NONE ctermfg=darkgray
 
