@@ -66,7 +66,7 @@ set mouse=a
 set visualbell                  " flash instead of blinking
 
 " NOTE: This setting breaks rectangular yank/put.
-set clipboard+=unnamedplus      " map "+ register to system clipboard
+"set clipboard+=unnamedplus      " map "+ register to system clipboard
 
 " Convenience
 nnoremap Y y$
@@ -82,5 +82,6 @@ vnoremap <silent> <Leader>e :w       !tmux-send<CR><CR>
 set runtimepath+=~/opt/fzf  " https://github.com/junegunn/fzf
 nnoremap <silent> <Leader>o :FZF<CR>
 nnoremap <Leader>n :NERDTreeToggle<CR>
+nnoremap <Leader>u :UndotreeToggle<CR>
 vnoremap <silent> <Leader>t :<C-u>execute "'<,'>!tabulate" v:count<CR>
 let g:is_bash = 1
