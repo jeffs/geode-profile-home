@@ -30,3 +30,5 @@ Downloads = "down"
 # Ports to publish on the host machine.  Each host port (key) is mapped to the
 # specified guest port (value).
 [ports]
+3000 = 3000
+8000 = 8000
