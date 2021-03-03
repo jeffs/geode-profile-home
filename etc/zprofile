@@ -1,6 +1,7 @@
 export EXA_COLORS='*.md=;'
 export FZF_DEFAULT_COMMAND='fdfind --type=f'
 export LESS='-FR -j5'
+export LS_COLORS='di=01;36'
 export PAGER=less
 export READNULLCMD=$PAGER
 export RIPGREP_CONFIG_PATH=~/conf/etc/ripgreprc

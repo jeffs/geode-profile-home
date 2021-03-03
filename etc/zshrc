@@ -31,7 +31,6 @@ unsetopt share_history
 
 # ALIASES
 
-alias ls=exa
 alias tree='exa --tree'
 alias t=tree
 alias h=history
