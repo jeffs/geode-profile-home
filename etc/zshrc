@@ -1,8 +1,9 @@
 # VARIABLES
 
-COMPLETION_WAITING_DOTS="true"
-DISABLE_AUTO_TITLE="true"
-DISABLE_UNTRACKED_FILES_DIRTY="true"
+CASE_SENSITIVE=true
+COMPLETION_WAITING_DOTS=true
+DISABLE_AUTO_TITLE=true
+DISABLE_UNTRACKED_FILES_DIRTY=true
 
 # Note that zsh-syntax-highlighting must be the last plugin sourced.
 # https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md
