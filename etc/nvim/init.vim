@@ -64,9 +64,10 @@ set spellfile=~/var/nvim/spell/spellfile.utf8.add
 " Desktop integration
 set mouse=a
 set visualbell                  " flash instead of blinking
+colorscheme darkblue
 
 " NOTE: This setting breaks rectangular yank/put.
-"set clipboard+=unnamedplus      " map "+ register to system clipboard
+set clipboard+=unnamedplus      " map "+ register to system clipboard
 
 " Convenience
 nnoremap Y y$
@@ -85,3 +86,7 @@ nnoremap <Leader>n :NERDTreeToggle<CR>
 nnoremap <Leader>u :UndotreeToggle<CR>
 vnoremap <silent> <Leader>t :<C-u>execute "'<,'>!tabulate" v:count<CR>
 let g:is_bash = 1
+
+" If ever Vim won't output italics in a terminal that supports them, try this:
+" set t_ZH=[3m
+" set t_ZR=[3m
