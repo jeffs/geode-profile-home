@@ -6,6 +6,8 @@
 	st     = status
 	flog   = log --first-parent --oneline
 	spliff = difftool -y
+	root = rev-parse --show-toplevel
+	exec = "!exec "
 [color]
 	ui = true
 [core]
