@@ -30,6 +30,8 @@ unsetopt correct_all
 unsetopt hist_verify
 unsetopt share_history
 
+zstyle ':completion:*' matcher-list ''
+
 # ALIASES
 
 alias tree='exa --tree'
