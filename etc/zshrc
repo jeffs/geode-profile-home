@@ -34,13 +34,15 @@ zstyle ':completion:*' matcher-list ''
 
 # ALIASES
 
+unalias l la
+
 alias tree='exa --tree'
 alias t=tree
 alias h=history
 alias u='c ..'
 alias uu='c ../..'
 alias uuu='c ../../..'
-alias py3=python3
+alias py3='python3 -q'
 alias play='c ~/var/rust/play && nvim src/main.rs'
 for i in `seq 9`; do alias t$i="t -L$i"; done
 for s in br ci co di pull push st; do alias $s="git $s"; done
@@ -51,6 +53,8 @@ c() { cd "$@" && ls; }
 cg() { c $(git rev-parse --show-toplevel); }
 cl() { mc ~/file/log/$(date +%Y/%m/%d); }
 e() { ${EDITOR:-nvim} "$@"; }
+l() { ls -hl --color "$@" | $PAGER }
+la() { ls -Ahl --color "$@" | $PAGER }
 mc() { mkdir -p $1 && c $1; }
 
 # Load nvm lazily, since merely sourcing its definition takes ~350ms.
@@ -67,12 +71,14 @@ function nvm() {
     nvm "$@"
 }
 
-# TODO: Alias npm and npx, too.  Enabling one should imply the others.
-function node() {
-    unset -f node
-    [[ -v NVM_DIR ]] || nvm use --lts
-    node "$@"
-}
+for command in node npm npx; do
+    $command() {
+        unset -f node npm npx
+        [[ -v NVM_DIR ]] || nvm use --lts
+        "$0" "$@"
+    }
+done
+unset command
 
 # Load lf lazily, mostly because installing it eagerly slows down geode build.
 lfcd() {
