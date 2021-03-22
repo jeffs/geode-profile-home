@@ -71,8 +71,18 @@ set clipboard+=unnamedplus      " map "+ register to system clipboard
 
 " Convenience
 nnoremap Y y$
-abbrev 0vomit 🤮
+
+" Abbreviations
+" 🤮 U+1F92E 		Face Vomiting
+" ☯️  U+262F, U+FE0F 	Yin Yang Emoji, Variant Form
+" 🖖 U+1F596 		Vulcan Salute
+" ⌘  U+2318  		Place of Interest Sign 
+" ⇧  U+21E7  		Level 2 Select Key
+abbrev 0vomit    🤮
 abbrev 0yin_yang ☯️
+abbrev 0vulcan   🖖
+abbrev 0cmd      ⌘
+abbrev 0shift    ⇧
 
 " Tmux integration: Send a line, paragraph, or selection to the bottom pane.
 nnoremap <silent> <C-j>     :.w      !tmux-send<CR><CR>j
