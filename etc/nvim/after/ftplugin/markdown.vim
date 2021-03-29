@@ -1,4 +1,5 @@
 setlocal shiftwidth=4 softtabstop=-1
+setlocal suffixesadd+=.md
 
 nnoremap <silent> <buffer> <Leader>b :w !markdown % > %.html<CR>
 
