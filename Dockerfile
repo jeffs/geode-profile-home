@@ -44,6 +44,7 @@ ENV TZ={{.TimeZone}}
 #       jq              # parses, queries, transforms, and formats JSON
 #       man             # manual page viewer
 #       markdown        # converts Markdown files to HTML
+#       cal (ncal)      # calendar
 #       sudo            # runs commands as superuser
 #       zip             # creates or expands .zip compressed archives
 #
@@ -58,7 +59,7 @@ ENV TZ={{.TimeZone}}
 #       zsh             # alternative to sh
 #
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -qqy \
-    build-essential golang python3-pip python3-venv \
+    build-essential ncal golang python3-pip python3-venv \
     curl libssl-dev net-tools netcat-traditional \
     git jq man markdown sudo zip \
     bat exa fd-find neovim ripgrep sl tmux zsh \

@@ -36,6 +36,7 @@ zstyle ':completion:*' matcher-list ''
 
 unalias l la
 
+alias cal='ncal -b'
 alias tree='exa --tree'
 alias t=tree
 alias h=history
