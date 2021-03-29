@@ -1,9 +1,10 @@
+export EDITOR=vim
 export EXA_COLORS='*.md=;'
 export FZF_DEFAULT_COMMAND='fdfind --type=f'
-export LESS='-FR -j5'
+export LESS='-FR -j5 -X'
 export PAGER=less
 export READNULLCMD=$PAGER
 export RIPGREP_CONFIG_PATH=~/conf/etc/ripgreprc
 export ZSH=~/.oh-my-zsh
 
-path=(~/usr/bin ~/.cargo/bin ~/go/bin $path)
+path=(~/usr/bin ~/.cargo/bin ~/go/bin ~/Library/Python/3.8/bin $path)

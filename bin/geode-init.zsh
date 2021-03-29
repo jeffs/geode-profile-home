@@ -24,11 +24,11 @@ for f in gitconfig tmux.conf zprofile zshrc; do
 done
 
 # Create cache and history directories for Neovim.
-for d in back swap undo view; do
+for d in back spell swap undo view; do
     mkdir -p ~/var/nvim/$d
 done
 
 # Link programs that have weird names on Ubuntu.
 mkdir -p ~/usr/bin
-ln -s $(which batcat) ~/usr/bin/bat
-ln -s $(which fdfind) ~/usr/bin/fd
+#ln -s $(which batcat) ~/usr/bin/bat
+#ln -s $(which fdfind) ~/usr/bin/fd

@@ -1,23 +1,27 @@
 # VARIABLES
 
-COMPLETION_WAITING_DOTS="true"
-DISABLE_AUTO_TITLE="true"
-DISABLE_UNTRACKED_FILES_DIRTY="true"
+${CASE_SENSITIVE=true}
+${COMPLETION_WAITING_DOTS=true}
+${DISABLE_AUTO_TITLE=true}
+${DISABLE_UNTRACKED_FILES_DIRTY=true}
 
 # Note that zsh-syntax-highlighting must be the last plugin sourced.
 # https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md
-plugins=(zsh-syntax-highlighting)
+plugins=(
+    docker docker-compose
+    zsh-syntax-highlighting
+)
 
 source $ZSH/oh-my-zsh.sh
 
 # Use precmd to format a nice separator for use in a colorized PROMPT.
 typeset -H prompt_bar
-PROMPT=$'\n%{$fg[cyan]%}(%h) $prompt_bar\n$%{$reset_color%} '
 precmd() {
     local d=$(dirs -p | head -1)
     local -i n=$(($COLUMNS - ${#d} - 9))
     prompt_bar="$d $(printf '─%.0s' $(=/usr/bin/seq $n))"
 }
+PROMPT=$'\n%{$fg[cyan]%}(%h) $prompt_bar\n$%{$reset_color%} '
 
 # OPTIONS
 
@@ -31,7 +35,8 @@ unsetopt share_history
 
 # ALIASES
 
-alias ls=exa
+alias hd='hexdump -C'
+#alias ls=exa
 alias tree='exa --tree'
 alias t=tree
 alias h=history
@@ -39,7 +44,7 @@ alias u='c ..'
 alias uu='c ../..'
 alias uuu='c ../../..'
 alias py3=python3
-alias play='c ~/var/rust/play && nvim src/main.rs'
+alias play='c ~/var/play/rust && e src/main.rs'
 for i in `seq 9`; do alias t$i="t -L$i"; done
 for s in br ci co di pull push st; do alias $s="git $s"; done
 
@@ -48,7 +53,7 @@ for s in br ci co di pull push st; do alias $s="git $s"; done
 c() { cd "$@" && ls; }
 cg() { c $(git rev-parse --show-toplevel); }
 cl() { mc ~/file/log/$(date +%Y/%m/%d); }
-e() { ${EDITOR:-nvim} "$@"; }
+e() { ${EDITOR:-vi} "$@"; }
 mc() { mkdir -p $1 && c $1; }
 
 # Load nvm lazily, since merely sourcing its definition takes ~350ms.

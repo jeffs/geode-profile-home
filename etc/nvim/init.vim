@@ -33,8 +33,8 @@ inoremap <silent> <C-j> <Esc>:s/\s*{\=\s*$//<CR>A {<CR>}<C-o>O
 " Buffer management.
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>w :up<CR>
-autocmd TermOpen * nnoremap <buffer> <nowait> q :bw!<CR>
-autocmd TermOpen * nnoremap <buffer> <Leader>q :bw!<CR>
+"autocmd TermOpen * nnoremap <buffer> <nowait> q :bw!<CR>
+"autocmd TermOpen * nnoremap <buffer> <Leader>q :bw!<CR>
 
 " Omnicomplete.
 highlight Pmenu ctermbg=darkgray
@@ -63,15 +63,23 @@ set spellfile=~/var/nvim/spell/spellfile.utf8.add
 
 " Desktop integration
 set mouse=a
-set visualbell                  " flash instead of blinking
+"set visualbell                  " flash instead of blinking
+se belloff=all			" don't flash or blink to alert me of anything
 
 " NOTE: This setting breaks rectangular yank/put.
 "set clipboard+=unnamedplus      " map "+ register to system clipboard
+set clipboard=unnamed		" hoping this works better on macOS than X11
 
 " Convenience
+set backspace=indent,eol,start
+set ruler
 nnoremap Y y$
-abbrev 0vomit 🤮
-abbrev 0yin_yang ☯️
+"abbrev 0vomit 🤮
+"abbrev 0yin_yang ☯️
+"abbrev 0cmd ⌘
+digraph vo 129326
+digraph yy 9775
+digraph cm 8984
 
 " Tmux integration: Send a line, paragraph, or selection to the bottom pane.
 nnoremap <silent> <C-j>     :.w      !tmux-send<CR><CR>j
@@ -79,9 +87,20 @@ nnoremap <silent> <Leader>e vap:w    !tmux-send<CR><CR>}
 vnoremap <silent> <Leader>e :w       !tmux-send<CR><CR>
 
 " Plugin integration
+filetype indent plugin on
+syntax enable
+colorscheme default
 set runtimepath+=~/opt/fzf  " https://github.com/junegunn/fzf
+let g:NERDTreeMouseMode=2
 nnoremap <silent> <Leader>o :FZF<CR>
 nnoremap <Leader>n :NERDTreeToggle<CR>
 nnoremap <Leader>u :UndotreeToggle<CR>
 vnoremap <silent> <Leader>t :<C-u>execute "'<,'>!tabulate" v:count<CR>
 let g:is_bash = 1
+
+" Don't use the terminal's "Alternate Screen" feature.
+set t_ti= t_te=
+
+" Enable italics.
+set t_ZH=[3m
+set t_ZR=[23m
