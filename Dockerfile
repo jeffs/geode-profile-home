@@ -26,15 +26,15 @@ ENV TZ={{.TimeZone}}
 #       c               # C and C++ toolchain and standard library
 #       (build-essential)
 #
-#	golang		# The Go programming language
+#       golang          # The Go programming language
 #
 #       python3         # Python 3 with pip, venv, and headers
 #       (mypy python3-pip python3-venv)
 #
 # network:
 #       curl            # HTTP utility
-#	libssl-dev	# OpenSSL libraries; required by cargo-audit
-#	net-tools	# ifconfig et al
+#       libssl-dev      # OpenSSL libraries; required by cargo-audit
+#       net-tools       # ifconfig et al
 #
 #       netcat          # TCP/IP Swiss army knife
 #       (netcat-traditional)
@@ -44,7 +44,7 @@ ENV TZ={{.TimeZone}}
 #       jq              # parses, queries, transforms, and formats JSON
 #       man             # manual page viewer
 #       markdown        # converts Markdown files to HTML
-#	sudo		# runs commands as superuser
+#       sudo            # runs commands as superuser
 #       zip             # creates or expands .zip compressed archives
 #
 # enhanced commands:
