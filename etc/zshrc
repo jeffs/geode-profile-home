@@ -99,6 +99,9 @@ gh() {
     gh "$@"
 }
 
+# Open a man page in Vim.
+manv() { vim +":Man $1 | only"; }
+
 # BINDINGS
 
 bindkey -s '^o' 'lfcd\n'
