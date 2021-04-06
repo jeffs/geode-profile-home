@@ -15,7 +15,9 @@ fi
 
 if [ ! -d ~/git/py-kart ]; then
     git clone git@github.com:jeffs/py-kart.git ~/git/py-kart
-    ln -s ~/git/py-kart/smarten/main.py ~/usr/bin/smarten
+    for program in smarten yesterday; do
+        ln -s ~/git/py-kart/$program/main.py ~/usr/bin/$program
+    done
 fi
 
 # Do the slowest thing last.

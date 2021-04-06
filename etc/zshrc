@@ -53,6 +53,7 @@ for s in br ci co di pull push st; do alias $s="git $s"; done
 c() { cd "$@" && ls; }
 cg() { c $(git rev-parse --show-toplevel); }
 cl() { mc ~/file/log/$(date +%Y/%m/%d); }
+cy() { mc ~/file/log/$(yesterday); }
 e() { ${EDITOR:-nvim} "$@"; }
 l() { ls -hl --color "$@" | $PAGER }
 la() { ls -Ahl --color "$@" | $PAGER }
