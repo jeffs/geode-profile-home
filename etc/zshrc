@@ -13,10 +13,10 @@ source $ZSH/oh-my-zsh.sh
 
 # Use precmd to format a nice separator for use in a colorized PROMPT.
 typeset -H prompt_bar
-PROMPT=$'\n%{$fg[cyan]%}(%h) $prompt_bar\n$%{$reset_color%} '
+PROMPT=$'\n%{$fg[cyan]%}(%h) $(hostname):$prompt_bar\n$%{$reset_color%} '
 precmd() {
     local d=$(dirs -p | head -1)
-    local -i n=$(($COLUMNS - ${#d} - 9))
+    local -i n=$(($COLUMNS - ${#d} - ${#$(hostname)} - 9))
     prompt_bar="$d $(printf '─%.0s' $(=/usr/bin/seq $n))"
 }
 
