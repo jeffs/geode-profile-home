@@ -36,10 +36,6 @@ nnoremap <Leader>w :up<CR>
 autocmd TermOpen * nnoremap <buffer> <nowait> q :bw!<CR>
 autocmd TermOpen * nnoremap <buffer> <Leader>q :bw!<CR>
 
-" Omnicomplete.
-highlight Pmenu ctermbg=darkgray
-highlight PmenuSel ctermbg=blue ctermfg=white
-
 " Line wrapping
 let &showbreak = nr2char(0x230a)        " prefix soft-wrapped lines with ⌊
 set breakindent breakindentopt+=shift:2 " indent wrapped lines
@@ -64,7 +60,6 @@ set spellfile=~/var/nvim/spell/spellfile.utf8.add
 " Desktop integration
 set mouse=a
 set visualbell                  " flash instead of blinking
-colorscheme darkblue
 
 " NOTE: This setting breaks rectangular yank/put.
 set clipboard+=unnamedplus      " map "+ register to system clipboard
