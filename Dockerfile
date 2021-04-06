@@ -26,6 +26,7 @@ ENV TZ={{.TimeZone}}
 #       c               # C and C++ toolchain and standard library
 #       (build-essential)
 #
+#       cmake           # CMake build file generator
 #       golang          # The Go programming language
 #
 #       python3         # Python 3 with pip, venv, and headers
@@ -35,6 +36,7 @@ ENV TZ={{.TimeZone}}
 #       curl            # HTTP utility
 #       libssl-dev      # OpenSSL libraries; required by cargo-audit
 #       net-tools       # ifconfig et al
+#       whois           # shows domain names registration details
 #
 #       netcat          # TCP/IP Swiss army knife
 #       (netcat-traditional)
@@ -59,9 +61,9 @@ ENV TZ={{.TimeZone}}
 #       zsh             # alternative to sh
 #
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -qqy \
-    build-essential ncal golang python3-pip python3-venv \
-    curl libssl-dev net-tools netcat-traditional \
-    git jq man markdown sudo zip \
+    build-essential cmake golang python3-pip python3-venv \
+    curl libssl-dev net-tools netcat-traditional whois \
+    git jq man markdown ncal sudo zip \
     bat exa fd-find neovim ripgrep sl tmux zsh \
  && python3 -m pip install mypy
 
