@@ -91,6 +91,11 @@ nnoremap <Leader>n :NERDTreeToggle<CR>
 nnoremap <Leader>u :UndotreeToggle<CR>
 vnoremap <silent> <Leader>t :<C-u>execute "'<,'>!tabulate" v:count<CR>
 let g:is_bash = 1
+let g:user_emmet_mode='i'
+
+function Autowrite()
+    autocmd TextChanged,TextChangedI <buffer> silent write
+endfunction
 
 " If ever Vim won't output italics in a terminal that supports them, try this:
 " set t_ZH=[3m

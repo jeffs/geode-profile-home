@@ -5,14 +5,11 @@ abbrev f! format!
 abbrev p! print!
 abbrev pl! println!
 
-set formatprg=rustfmt
+nnoremap <silent> <Leader>f :!cargo fmt %<CR><CR>
 
-"nnoremap <Leader>b :up<CR>:bel vsplit \| ter cargo build<CR>
 nnoremap <silent> <Leader>b :up<CR>:!./scripts/tmux-check.zsh<CR><CR>
 nnoremap <silent> <Leader>c :up<CR>:bel vsplit \| ter cargo check<CR>
-nnoremap <silent> <Leader>f gggqG<C-o><C-o>
 nnoremap <silent> <Leader>l :exe "!cargo clean -p" fnamemodify(getcwd(), ':t') <CR>
-"nnoremap <silent> <Leader>r :up<CR>:bel vsplit \| ter cargo --quiet run<CR>
 nnoremap <silent> <Leader>r :up<CR>:!./scripts/tmux-run.zsh<CR><CR>
 
 inoremap <buffer> <silent> <Esc> <Esc>:up<CR>
