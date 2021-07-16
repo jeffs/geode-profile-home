@@ -15,7 +15,7 @@ fi
 
 if [ ! -d ~/git/py-kart ]; then
     git clone git@github.com:jeffs/py-kart.git ~/git/py-kart
-    for program in smarten yesterday; do
+    for program in smarten url yesterday; do
         ln -s ~/git/py-kart/$program/main.py ~/usr/bin/$program
     done
 fi
