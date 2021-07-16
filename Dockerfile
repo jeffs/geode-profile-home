@@ -36,6 +36,7 @@ ENV TZ={{.TimeZone}}
 #       curl            # HTTP utility
 #       libssl-dev      # OpenSSL libraries; required by cargo-audit
 #       net-tools       # ifconfig et al
+#       ping            # iputils-ping
 #       whois           # shows domain names registration details
 #
 #       netcat          # TCP/IP Swiss army knife
@@ -62,7 +63,7 @@ ENV TZ={{.TimeZone}}
 #
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -qqy \
     build-essential cmake golang python3-pip python3-venv \
-    curl libssl-dev net-tools netcat-traditional whois \
+    curl iputils-ping libssl-dev net-tools netcat-traditional whois \
     git jq man markdown ncal sudo zip \
     bat exa fd-find neovim ripgrep sl tmux zsh \
  && python3 -m pip install mypy
