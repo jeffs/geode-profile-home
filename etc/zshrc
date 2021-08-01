@@ -71,6 +71,7 @@ function nvm() {
     source $NVM_DIR/nvm.sh
     source $NVM_DIR/bash_completion
     nvm "$@"
+    export PATH="$HOME/.nvm/versions/node/$(nvm current)/bin:$PATH"
 }
 
 for command in node npm npx; do
