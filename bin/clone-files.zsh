@@ -15,7 +15,7 @@ fi
 
 if [ ! -d ~/git/py-kart ]; then
     git clone git@github.com:jeffs/py-kart.git ~/git/py-kart
-    for program in smarten url yesterday; do
+    for program in pangram smarten url yesterday; do
         ln -s ~/git/py-kart/$program/main.py ~/usr/bin/$program
     done
 fi
@@ -24,5 +24,7 @@ fi
 if [ ! -d ~/git/rust-kart ]; then
     if [ ! -d ~/.cargo ]; then $d/install-rust.zsh; fi
     git clone git@github.com:jeffs/rust-kart.git ~/git/rust-kart
-    cargo install --path ~/git/rust-kart
+    for d in $(dirname $(dirname $(find ~/git/rust-kart -name main.rs))); do
+        cargo install --force --path $d
+    done
 fi
