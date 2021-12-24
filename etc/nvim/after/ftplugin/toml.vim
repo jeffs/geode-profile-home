@@ -1,1 +1,1 @@
-set expandtab shiftwidth=4 softtabstop=-1
+setlocal expandtab shiftwidth=4 softtabstop=-1
