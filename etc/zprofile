@@ -1,3 +1,4 @@
+export DISABLE_MAGIC_FUNCTIONS=true # Stop oh-my-zsh from being too clever.
 export EXA_COLORS='*.md=;'
 export FZF_DEFAULT_COMMAND='fdfind --type=f'
 export LESS='-FR -j5'
@@ -8,4 +9,4 @@ export READNULLCMD=$PAGER
 export RIPGREP_CONFIG_PATH=~/conf/etc/ripgreprc
 export ZSH=~/.oh-my-zsh
 
-path=(~/usr/bin ~/.cargo/bin ~/go/bin $path)
+path=(~/usr/bin $path ~/.cargo/bin ~/go/bin ~/.local/bin)
