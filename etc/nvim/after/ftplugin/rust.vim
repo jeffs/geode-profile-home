@@ -1,3 +1,16 @@
+if exists('b:my_rust_loaded')
+        finish
+endif
+
+let b:my_rust_loaded = 1
+
+if expand('%') == '/tmp/fmt.rs'
+	setlocal nohidden
+	nunmap q;
+	nunmap q:
+	nnoremap q :q<CR>
+endif
+
 abbrev a! assert!
 abbrev ae! assert_eq!
 abbrev an! assert_ne!
@@ -5,12 +18,10 @@ abbrev f! format!
 abbrev p! print!
 abbrev pl! println!
 
-nnoremap <silent> <Leader>f :!cargo fmt %<CR><CR>
-
-nnoremap <silent> <Leader>b :up<CR>:!./scripts/tmux-check.zsh<CR><CR>
-nnoremap <silent> <Leader>c :up<CR>:bel vsplit \| ter cargo check<CR>
-nnoremap <silent> <Leader>l :exe "!cargo clean -p" fnamemodify(getcwd(), ':t') <CR>
-nnoremap <silent> <Leader>r :up<CR>:!./scripts/tmux-run.zsh<CR><CR>
+nnoremap <buffer> <silent> <Leader>c :up<CR>:bel split \| te cargo check --bin %:t:r<CR>
+nnoremap <buffer> <silent> <Leader>f :call MyRustFormat()<CR>
+nnoremap <buffer> <silent> <Leader>r :up<CR>:bel split \| te cargo run --bin %:t:r<CR>
+nnoremap <buffer> <silent> <Leader>t :up<CR>:bel split \| te cargo test --bin %:t:r -- --nocapture<CR>
 
 inoremap <buffer> <silent> <Esc> <Esc>:up<CR>
 nnoremap <buffer> <silent> <Esc> <Esc>:up<CR>
@@ -35,13 +46,21 @@ hi Todo ctermbg=NONE ctermfg=darkgray
 "
 " As of 2018, some folks seem(ed) to share this assessment:
 " https://internals.rust-lang.org/t/style-guide-for-comments/8995/2
-set colorcolumn=101 textwidth=79
-set nowrap number
+setlocal colorcolumn=101 textwidth=79
+setlocal nowrap number
 
 let &breakindentopt = "shift:" . (&shiftwidth * 2)
 
-function Format()
-	let save_pos = getpos(".")
-	%!rustfmt --edition=2018
-	call setpos('.', save_pos)
+if exists('*MyRustFormat')
+        finish
+endif
+
+function MyRustFormat()
+        update
+	silent !rustfmt --edition=2021 % >& /tmp/fmt.rs
+	if -1 == match(readfile('/tmp/fmt.rs'), '\S')
+		edit
+	else
+		below split /tmp/fmt.rs
+	endif
 endfunction
