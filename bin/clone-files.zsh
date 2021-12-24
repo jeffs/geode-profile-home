@@ -15,7 +15,7 @@ fi
 
 if [ ! -d ~/git/py-kart ]; then
     git clone git@github.com:jeffs/py-kart.git ~/git/py-kart
-    for program in pangram smarten url yesterday; do
+    for program in pangram smarten url vimod yesterday; do
         ln -s ~/git/py-kart/$program/main.py ~/usr/bin/$program
     done
 fi
