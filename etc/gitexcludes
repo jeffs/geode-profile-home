@@ -23,7 +23,7 @@ __pycache__/
 *.ar
 *.dylib
 
-# SBT droppings
+# SBT and Cargo droppings
 target/
 
 # Markdown output
