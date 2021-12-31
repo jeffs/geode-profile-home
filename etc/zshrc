@@ -63,7 +63,7 @@ la() { ls -Ahl --color "$@" | $PAGER }
 mc() { mkdir -p $1 && c $1; }
 
 # Load nvm lazily, since merely sourcing its definition takes ~350ms.
-function nvm() {
+nvm() {
     # Install NVM if necessary.
     if [ ! -d ~/.nvm ]; then
         ~/conf/bin/install-node.zsh || return 1
@@ -94,6 +94,14 @@ lfcd() {
     unset -f lfcd
     source $(ls ~/go/pkg/mod/github.com/gokcehan/lf@*/etc/lfcd.sh | tail -1)
     lfcd "$@"
+}
+
+exa() {
+    if ! /bin/which exa >&/dev/null; then
+        cargo install exa
+    fi
+    unset -f exa
+    exa "$@"
 }
 
 gh() {

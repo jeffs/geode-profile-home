@@ -53,7 +53,6 @@ ENV TZ={{.TimeZone}}
 #
 # enhanced commands:
 #       bat             # alternative to cat
-#       exa             # alternative to ls and tree
 #       fd (fd-find)    # alternative to find
 #       neovim          # fork of vim
 #       ripgrep         # alternative to grep
@@ -65,7 +64,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -qqy \
     build-essential cmake golang python3-pip python3-venv \
     curl iputils-ping libssl-dev net-tools netcat-traditional whois \
     git jq man markdown ncal sudo zip \
-    bat exa fd-find neovim ripgrep sl tmux zsh \
+    bat fd-find neovim ripgrep sl tmux zsh \
  && python3 -m pip install mypy
 
 # Create myself, and give myself super powers.
