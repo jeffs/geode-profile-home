@@ -24,7 +24,9 @@ fi
 if [ ! -d ~/git/rust-kart ]; then
     if [ ! -d ~/.cargo ]; then $d/install-rust.zsh; fi
     git clone git@github.com:jeffs/rust-kart.git ~/git/rust-kart
-    for d in $(dirname $(dirname $(find ~/git/rust-kart -name main.rs))); do
-        cargo install --force --path $d
+    for f in ~/git/rust-kart/*; do
+        if [ -f $f/src/main.rs -o -d $f/src/bin ]; then
+            cargo install --force --path $f
+        fi
     done
 fi
