@@ -1,3 +1,5 @@
+setlocal textwidth=79
+
 if exists('b:my_rust_loaded')
         finish
 endif
