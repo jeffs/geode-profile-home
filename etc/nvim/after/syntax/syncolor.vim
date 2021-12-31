@@ -1,5 +1,5 @@
 " Commented by default because Smyck isn't necessarily available.
-" colorscheme smyck
+colorscheme smyck
 
 " Omnicomplete.
 "highlight Pmenu ctermbg=darkgray ctermfg=gray
