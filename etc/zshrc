@@ -50,6 +50,9 @@ for s in br ci co di flog glog pull push st; do alias $s="git $s"; done
 
 # FUNCTIONS
 
+# Useful when copying lines of code from documentation that includes prompts.
+function $ { "$@" }
+
 c() { cd "$@" && ls; }
 cg() { c $(git rev-parse --show-toplevel); }
 cl() { mc ~/file/log/$(date +%Y/%m/%d); }
