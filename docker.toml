@@ -24,6 +24,7 @@ init = ["conf/bin/geode-init.zsh"]
 Desktop = "desk"
 Downloads = "down"
 big = "big"
+"host/home" = "host"
 
 # Docker volumes to mount (in addition to your home directory).
 [volumes]
