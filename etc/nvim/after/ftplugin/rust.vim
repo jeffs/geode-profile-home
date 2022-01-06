@@ -24,6 +24,7 @@ abbrev pl! println!
 " https://github.com/jeffs/rust-kart/blob/master/cargo-norm/src/main.rs
 nnoremap <buffer> <silent> <Leader>c :up<CR>:bel split \| te cargo check --bin `cargo-norm %`<CR>
 nnoremap <buffer> <silent> <Leader>f :call MyRustFormat()<CR>
+nnoremap <buffer> <silent> <Leader>l :up<CR>:bel split \| te cargo clippy --bin `cargo-norm %`<CR>
 nnoremap <buffer> <silent> <Leader>r :up<CR>:bel split \| te cargo run --release --bin `cargo-norm %`<CR>
 nnoremap <buffer> <silent> <Leader>t :up<CR>:bel split \| te cargo test --bin `cargo-norm %` -- --nocapture<CR>
 
