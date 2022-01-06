@@ -65,6 +65,7 @@ set visualbell                  " flash instead of blinking
 set clipboard+=unnamedplus      " map "+ register to system clipboard
 
 " Convenience
+nnoremap <C-l> :syntax sync fromstart<CR>
 nnoremap Y y$
 
 " Abbreviations
