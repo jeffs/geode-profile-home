@@ -7,6 +7,7 @@ git clone https://github.com/cespare/vim-toml.git
 git clone https://github.com/mattn/emmet-vim.git
 git clone https://github.com/mbbill/undotree.git
 git clone https://github.com/preservim/nerdtree.git
+git clone https://github.com/rvesse/vim-sparql
 
 # Install the Smyck color scheme.
 d=~/.local/share/nvim/site/colors
