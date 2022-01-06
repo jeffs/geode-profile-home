@@ -60,11 +60,16 @@ ENV TZ={{.TimeZone}}
 #       tmux            # terminal multiplexer
 #       zsh             # alternative to sh
 #
+# data:
+#       lsb-release     # /etc/lsb-release
+#       wamerican       # /usr/share/dict/words
+#
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -qqy \
     build-essential cmake golang python3-pip python3-venv \
     curl iputils-ping libssl-dev net-tools netcat-traditional whois \
     git jq man markdown ncal sudo zip \
     bat fd-find neovim ripgrep sl tmux zsh \
+    lsb-release wamerican \
  && python3 -m pip install mypy
 
 # Create myself, and give myself super powers.
