@@ -37,7 +37,7 @@ zstyle ':completion:*' matcher-list ''
 unalias l la
 
 alias cal='ncal -b'
-alias tree='exa --tree'
+alias tree='exa --group-directories-first --tree'
 alias t='tree --git-ignore'
 alias h=history
 alias u='c ..'
@@ -46,7 +46,7 @@ alias uuu='c ../../..'
 alias py3='python3 -q'
 alias play='c ~/var/rust/play && nvim src/main.rs'
 for i in `seq 9`; do alias t$i="t -L$i"; done
-for s in br ci co di flog glog pull push st; do alias $s="git $s"; done
+for s in br ci co di flog glog pull push st stash; do alias $s="git $s"; done
 
 # FUNCTIONS
 

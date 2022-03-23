@@ -43,6 +43,7 @@ ENV TZ={{.TimeZone}}
 #       (netcat-traditional)
 #
 # basic commands:
+#       file            # guesses file types
 #       git             # version control system
 #       jq              # parses, queries, transforms, and formats JSON
 #       man             # manual page viewer
@@ -66,11 +67,16 @@ ENV TZ={{.TimeZone}}
 #
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -qqy \
     build-essential cmake golang python3-pip python3-venv \
-    curl iputils-ping libssl-dev net-tools netcat-traditional whois \
+    curl file iputils-ping libssl-dev net-tools netcat-traditional whois \
     git jq man markdown ncal sudo zip \
     bat fd-find neovim ripgrep sl tmux zsh \
     lsb-release wamerican \
  && python3 -m pip install mypy
+
+
+# Install a web browser so I can run (headless) JavaScript test drivers.
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -qqy \
+	firefox
 
 # Create myself, and give myself super powers.
 #

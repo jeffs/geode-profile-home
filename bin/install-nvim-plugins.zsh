@@ -1,15 +1,34 @@
 #!/usr/bin/env -S zsh -euo pipefail
+#
+# This script installs or updates NeoVim plugins and the Smyck color scheme.
 
-# Install plugins for Neovim.
-d=~/.local/share/nvim/site/pack/plugins/start
-mkdir -p $d && cd $d
-git clone https://github.com/cespare/vim-toml.git
-git clone https://github.com/mattn/emmet-vim.git
-git clone https://github.com/mbbill/undotree.git
-git clone https://github.com/preservim/nerdtree.git
-git clone https://github.com/rvesse/vim-sparql
+readonly site=~/.local/share/nvim/site
+readonly colors="$site/colors"
+readonly plugins="$site/pack/plugins/start"
 
-# Install the Smyck color scheme.
-d=~/.local/share/nvim/site/colors
-mkdir $d && cd $d
-curl -OSs https://raw.githubusercontent.com/hukl/Smyck-Color-Scheme/master/smyck.vim
+function upsert {
+    readonly dir="$plugins/$(basename $1)"
+    if [ -d "$dir" ]; then
+        (cd "$dir" && git pull --quiet)
+    else
+        git clone "https://github.com/$1.git" "$dir"
+    fi
+}
+
+mkdir -p $colors $plugins
+
+# Other useful plugins include:
+#
+#   hashivim/vim-terraform
+#   rvesse/vim-sparql
+for repo in  \
+        cespare/vim-toml \
+        mattn/emmet-vim \
+        mbbill/undotree \
+        preservim/nerdtree; do
+    upsert "$repo"
+done
+
+curl --output "$colors/smyck.vim" --show-error --silent \
+    https://raw.githubusercontent.com/hukl/Smyck-Color-Scheme/master/smyck.vim
+

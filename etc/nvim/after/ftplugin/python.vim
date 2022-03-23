@@ -18,7 +18,8 @@ nnoremap <buffer> <silent> <Leader>c :up\|!mypy %<CR>
 nnoremap <buffer> <silent> <Leader>i :up\|call MyPythonRepl()<CR><CR>
 nnoremap <buffer> <silent> <Leader>f :call MyPythonFormat()<CR>
 "nnoremap <buffer> <silent> <Leader>r :up\|!python3 %<CR>
-nnoremap <buffer> <silent> <Leader>r :up\|bel split \| te python3 -m %:h:t:r<CR>
+"nnoremap <buffer> <silent> <Leader>r :up\|bel split \| te python3 -m %:h:t:r<CR>
+nnoremap <buffer> <silent> <Leader>r :up\|bel split \| te python3 %<CR>
 
 " Open a block.
 inoremap <silent> <buffer> <C-j> <Esc>A:<CR>
