@@ -44,7 +44,7 @@ alias u='c ..'
 alias uu='c ../..'
 alias uuu='c ../../..'
 alias py3='python3 -q'
-alias play='c ~/var/rust/play && nvim src/main.rs'
+alias play='c ~/var/rust/play && nvim src/bin/play.rs'
 for i in `seq 9`; do alias t$i="t -L$i"; done
 for s in br ci co di flog glog pull push st stash; do alias $s="git $s"; done
 
@@ -113,7 +113,7 @@ gh() {
 }
 
 # Open a man page in Vim.
-manv() { vim +":Man $1 | only"; }
+Man() { vim +":Man $1 | only"; }
 
 # BINDINGS
 

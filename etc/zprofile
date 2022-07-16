@@ -10,4 +10,12 @@ export READNULLCMD=$PAGER
 export RIPGREP_CONFIG_PATH=~/conf/etc/ripgreprc
 export ZSH=~/.oh-my-zsh
 
-path=(~/usr/bin $path ~/.cargo/bin ~/go/bin ~/.local/bin)
+path=(
+    ~/usr/bin
+    ~/.local/bin
+    ~/.cargo/bin
+    ~/go/bin
+    /usr/sbin
+    /usr/local/bin
+    /usr/bin
+)
