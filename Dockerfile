@@ -37,6 +37,7 @@ ENV TZ={{.TimeZone}}
 #       libssl-dev      # OpenSSL libraries; required by cargo-audit
 #       net-tools       # ifconfig et al
 #       ping            # iputils-ping
+#       rsync           # tool for synchronizing directory contents
 #       whois           # shows domain names registration details
 #
 #       netcat          # TCP/IP Swiss army knife
@@ -67,7 +68,7 @@ ENV TZ={{.TimeZone}}
 #
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -qqy \
     build-essential cmake golang python3-pip python3-venv \
-    curl file iputils-ping libssl-dev net-tools netcat-traditional whois \
+    curl file iputils-ping libssl-dev net-tools netcat-traditional rsync whois \
     git jq man markdown ncal sudo zip \
     bat fd-find neovim ripgrep sl tmux zsh \
     lsb-release wamerican \
