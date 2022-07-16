@@ -41,6 +41,10 @@ let &showbreak = nr2char(0x230a)        " prefix soft-wrapped lines with ⌊
 set breakindent breakindentopt+=shift:2 " indent wrapped lines
 set linebreak                           " don't wrap lines
 
+" Folds
+set foldtext=getline(v:foldstart).printf('\ (%d)',v:foldlevel)
+    " format text for closed folds
+
 " Case sensitivity
 set ignorecase  " case-insensitive search
 set smartcase   "       unless the pattern includes a capital letter

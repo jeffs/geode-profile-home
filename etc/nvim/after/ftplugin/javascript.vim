@@ -1,6 +1,7 @@
 setlocal expandtab shiftwidth=2 softtabstop=-1
 setlocal number
 setlocal suffixesadd+=.js
+setlocal foldlevel=99
 
 if exists('b:my_js_loaded')
         finish
@@ -27,7 +28,6 @@ endif
 function MyJSFormat()
         update
 	silent !prettier --write % >& /tmp/fmt.js
-	"silent !prettierd % < % >& /tmp/fmt.js
 	if 1 < len(readfile('/tmp/fmt.js'))
 		below split /tmp/fmt.js
 	else

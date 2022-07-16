@@ -25,7 +25,7 @@ abbrev pl! println!
 nnoremap <buffer> <silent> <Leader>c :up<CR>:bel split \| te cargo check --bin `cargo-norm %`<CR>
 nnoremap <buffer> <silent> <Leader>f :call MyRustFormat()<CR>
 nnoremap <buffer> <silent> <Leader>l :up<CR>:bel split \| te cargo clippy --bin `cargo-norm %`<CR>
-nnoremap <buffer> <silent> <Leader>r :up<CR>:bel split \| te cargo run --release --bin `cargo-norm %`<CR>
+nnoremap <buffer> <silent> <Leader>r :up<CR>:bel split \| te cargo run --bin `cargo-norm %`<CR>
 nnoremap <buffer> <silent> <Leader>t :up<CR>:bel split \| te cargo test --bin `cargo-norm %` -- --nocapture<CR>
 "nnoremap <buffer> <silent> <Leader>t :up<CR>:bel split \| te RUST_BACKTRACE=1 cargo test --bin `cargo-norm %` minus -- --nocapture<CR>
 
