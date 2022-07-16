@@ -25,7 +25,9 @@ for repo in  \
         cespare/vim-toml \
         mattn/emmet-vim \
         mbbill/undotree \
-        preservim/nerdtree; do
+        preservim/nerdtree \
+        sheerun/vim-polyglot \
+        tpope/vim-abolish; do
     upsert "$repo"
 done
 
