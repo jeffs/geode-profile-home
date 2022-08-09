@@ -3,7 +3,7 @@
 name = "geode/home"
 
 # The parent of this profile's Docker image.
-base = "ubuntu:impish"
+base = "ubuntu:jammy"
 
 # Your user name and preferences in the guest (container) environment.
 user = "jeff"
