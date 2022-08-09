@@ -74,7 +74,6 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -qqy \
     lsb-release wamerican \
  && python3 -m pip install mypy
 
-
 # Install a web browser so I can run (headless) JavaScript test drivers.
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -qqy \
 	firefox
