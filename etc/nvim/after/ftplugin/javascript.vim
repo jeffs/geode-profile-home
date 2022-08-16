@@ -4,7 +4,7 @@ setlocal suffixesadd+=.js
 setlocal foldlevel=99
 
 if exists('b:my_js_loaded')
-        finish
+	finish
 endif
 
 let b:my_js_loaded = 1
@@ -22,11 +22,11 @@ nnoremap <buffer> <silent> <Leader>s :e %:r.css<CR>
 nnoremap <buffer> <silent> <Leader>t :e %:r.test.js<CR>
 
 if exists('*MyJSFormat')
-        finish
+	finish
 endif
 
 function MyJSFormat()
-        update
+	update
 	silent !prettier --write % >& /tmp/fmt.js
 	if 1 < len(readfile('/tmp/fmt.js'))
 		below split /tmp/fmt.js
