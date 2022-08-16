@@ -86,6 +86,20 @@ for command in node npm npx; do
 done
 unset command
 
+# Load Scala support lazily, to avoid slowing shell startup.
+sbt() {
+    if ! whence -p sbt >&/dev/null; then
+        export SDKMAN_DIR=~/.sdkman
+        # Install sdkman, java, and sbt if necessary.
+        if [ ! -d "$SDKMAN_DIR" ]; then
+            ~/conf/bin/install-scala.zsh || return 1
+        fi
+        source "$SDKMAN_DIR"/bin/sdkman-init.sh
+    fi
+    unset -f sbt
+    sbt "$@"
+}
+
 # Load lf lazily, mostly because installing it eagerly slows down geode build.
 lfcd() {
     if [ ! -d ~/go/pkg/mod/github.com/gokcehan ]; then
