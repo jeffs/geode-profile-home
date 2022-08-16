@@ -98,6 +98,10 @@ vnoremap <silent> <Leader>t :<C-u>execute "'<,'>!tabulate" v:count<CR>
 let g:is_bash = 1
 let g:user_emmet_mode='i'
 
+" Work around vim-polyglot's misfeature that sets tabstop=2. See issue 648:
+" https://github.com/sheerun/vim-polyglot/issues/648
+let g:polyglot_disabled = ["sensible"]
+
 function Autowrite()
     autocmd TextChanged,TextChangedI <buffer> silent write
 endfunction
