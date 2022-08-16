@@ -12,7 +12,9 @@ if expand('%') == '/tmp/fmt.py'
 endif
 
 
-setlocal textwidth=79
+"setlocal colorcolumn=80 textwidth=79
+setlocal colorcolumn=64 textwidth=63	" Substack code blocks suck.
+"setlocal colorcolumn=43 textwidth=42	" Substack code blocks suck.
 
 nnoremap <buffer> <silent> <Leader>c :up\|!mypy %<CR>
 nnoremap <buffer> <silent> <Leader>i :up\|call MyPythonRepl()<CR><CR>

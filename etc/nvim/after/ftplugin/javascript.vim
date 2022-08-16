@@ -2,6 +2,7 @@ setlocal expandtab shiftwidth=2 softtabstop=-1
 setlocal number
 setlocal suffixesadd+=.js
 setlocal foldlevel=99
+setlocal colorcolumn=64 textwidth=63	" Substack code blocks suck.
 
 if exists('b:my_js_loaded')
 	finish

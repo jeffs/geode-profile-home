@@ -1,5 +1,3 @@
-setlocal textwidth=79
-
 if exists('b:my_rust_loaded')
         finish
 endif
@@ -53,6 +51,7 @@ hi Todo ctermbg=NONE ctermfg=darkgray
 " As of 2018, some folks seem(ed) to share this assessment:
 " https://internals.rust-lang.org/t/style-guide-for-comments/8995/2
 setlocal colorcolumn=101 textwidth=79
+setlocal colorcolumn=64 textwidth=63	" Substack code blocks suck.
 setlocal nowrap number
 
 let &breakindentopt = "shift:" . (&shiftwidth * 2)
