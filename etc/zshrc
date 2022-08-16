@@ -77,9 +77,9 @@ nvm() {
     export PATH="$HOME/.nvm/versions/node/$(nvm current)/bin:$PATH"
 }
 
-for command in node npm npx; do
+for command in node npm npx yarn; do
     $command() {
-        unset -f node npm npx
+        unset -f node npm npx yarn
         [[ -v NVM_DIR ]] || nvm use --lts
         "$0" "$@"
     }
