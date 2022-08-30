@@ -27,8 +27,9 @@ nnoremap <silent> <C-_> :setlocal wrap!<CR>
 nnoremap <silent> <Left> :previous<CR>
 nnoremap <silent> <Right> :next<CR>
 
-" Open a curly brace delimited block.
+" Open a brace or paren delimited block.
 inoremap <silent> <C-j> <Esc>:s/\s*{\=\s*$//<CR>A {<CR>}<C-o>O
+inoremap <silent> <C-Down> <Esc>:s/\s*(\=\s*$//<CR>A (<CR>);<C-o>O
 
 " Buffer management.
 nnoremap <Leader>q :q<CR>

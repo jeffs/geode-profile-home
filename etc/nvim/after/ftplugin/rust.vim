@@ -10,7 +10,7 @@ if expand('%') == '/tmp/fmt.rs'
 	setlocal nohidden
 	nunmap q;
 	nunmap q:
-	nnoremap q :q<CR>
+	nnoremap <buffer> q :q<CR>
 endif
 
 abbrev a! assert!

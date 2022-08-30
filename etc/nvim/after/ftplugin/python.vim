@@ -8,7 +8,7 @@ if expand('%') == '/tmp/fmt.py'
 	setlocal nohidden
 	nunmap q;
 	nunmap q:
-	nnoremap q :q<CR>
+	nnoremap <buffer> q :q<CR>
 endif
 
 
