@@ -75,8 +75,20 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -qqy \
  && python3 -m pip install mypy
 
 # Install a web browser so I can run (headless) JavaScript test drivers.
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -qqy \
-	firefox
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -qqy firefox
+
+# Install the AWS CLI, which is a prerequisite for Terraform.
+RUN curl -OSs https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip \
+ && unzip awscli-exe-linux-x86_64.zip \
+ && ./aws/install \
+ && rm -fr aws awscli-exe-linux-x86_64.zip
+
+# Install the Terraform CLI.
+RUN curl -Ss https://apt.releases.hashicorp.com/gpg \
+        | gpg --dearmor > /usr/share/keyrings/hashicorp-archive-keyring.gpg \
+ && echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" > /etc/apt/sources.list.d/hashicorp.list \
+ && DEBIAN_FRONTEND=noninteractive apt-get update -qq \
+ && DEBIAN_FRONTEND=noninteractive apt-get install terraform
 
 # Create myself, and give myself super powers.
 #
