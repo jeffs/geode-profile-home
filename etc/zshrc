@@ -100,16 +100,6 @@ sbt() {
     sbt "$@"
 }
 
-# Load lf lazily, mostly because installing it eagerly slows down geode build.
-lfcd() {
-    if [ ! -d ~/go/pkg/mod/github.com/gokcehan ]; then
-        ~/conf/bin/install-lf.zsh || return 1
-    fi
-    unset -f lfcd
-    source $(ls ~/go/pkg/mod/github.com/gokcehan/lf@*/etc/lfcd.sh | tail -1)
-    lfcd "$@"
-}
-
 exa() {
     if ! /bin/which exa >&/dev/null; then
         cargo install exa
@@ -130,8 +120,6 @@ gh() {
 Man() { vim +":Man $1 | only"; }
 
 # BINDINGS
-
-bindkey -s '^o' 'lfcd\n'
 
 if [ -d ~/opt/fzf ]; then
     source ~/opt/fzf/shell/completion.zsh 2>/dev/null
