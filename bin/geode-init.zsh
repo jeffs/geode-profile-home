@@ -27,6 +27,7 @@ done
 for d in back swap undo view; do
     mkdir -p ~/var/nvim/$d
 done
+chmod -R 700 ~/var/nvim
 
 # Link programs that have weird names on Ubuntu.
 mkdir -p ~/usr/bin
