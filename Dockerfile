@@ -26,6 +26,7 @@ ENV TZ={{.TimeZone}}
 #       c               # C and C++ toolchain and standard library
 #       (build-essential)
 #
+#       clang-format    # C/C++ beautifier
 #       cmake           # CMake build file generator
 #       golang          # The Go programming language
 #
@@ -67,7 +68,7 @@ ENV TZ={{.TimeZone}}
 #       wamerican       # /usr/share/dict/words
 #
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -qqy \
-    build-essential cmake golang python3-pip python3-venv \
+    build-essential clang-format cmake golang python3-pip python3-venv \
     curl file iputils-ping libssl-dev net-tools netcat-traditional rsync whois \
     git jq man markdown ncal sudo zip \
     bat fd-find neovim ripgrep sl tmux zsh \

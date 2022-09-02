@@ -85,6 +85,9 @@ abbrev 0vulcan   🖖
 abbrev 0cmd      ⌘
 abbrev 0shift    ⇧
 
+" Git integration
+nnoremap <silent> <Leader>gdi :bel split term://git diff %<CR>
+
 " Tmux integration: Send a line, paragraph, or selection to the bottom pane.
 nnoremap <silent> <C-j>     :.w      !tmux-send<CR><CR>j
 nnoremap <silent> <Leader>e vap:w    !tmux-send<CR><CR>}

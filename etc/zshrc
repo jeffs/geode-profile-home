@@ -60,8 +60,10 @@ alias ti='tree --git-ignore'
 
 # FUNCTIONS
 
-# Useful when copying lines of code from documentation that includes prompts.
+# Useful when copying lines of code from documentation that includes prompts,
+# or from comments.
 function $ { "$@" }
+function // { "$@" }
 
 c() { cd "$@" && ls; }
 cg() { c $(git rev-parse --show-toplevel); }
