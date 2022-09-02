@@ -32,6 +32,11 @@ unsetopt share_history
 
 zstyle ':completion:*' matcher-list ''
 
+# Complete filenames after =, as in --someflag=.  Copied from:
+# https://unix.stackexchange.com/a/599449/49952
+autoload +X -U _default
+functions[_default]="setopt local_options magic_equal_subst; $functions[_default]"
+
 # ALIASES
 
 unalias l la
