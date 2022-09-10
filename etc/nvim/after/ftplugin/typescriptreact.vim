@@ -10,6 +10,11 @@ endif
 
 let b:my_tsx_loaded = 1
 
+inoremap <buffer> <silent> <Esc> <Esc>:up<CR>
+nnoremap <buffer> <silent> <Esc> <Esc>:up<CR>
+inoremap <buffer> <C-g> <Esc>
+inoremap <buffer> <C-g> <Esc>
+
 nnoremap <buffer> <silent> <Leader>f :call MyTSXFormat()<CR>
 nnoremap <buffer> <silent> <Leader>j :e %:r:r.tsx<CR>
 nnoremap <buffer> <silent> <Leader>s :e %:r:r.css<CR>
