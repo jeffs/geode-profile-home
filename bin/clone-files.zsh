@@ -3,7 +3,7 @@
 # Install everything I generally expect to be available, that won't otherwise
 # be installed automatically.
 
-mkdir -p ~/git ~/usr/bin
+mkdir -p ~/git ~/usr/bin ~/var
 
 d=$(dirname $0)
 if [ ! -d ~/.local/share/nvim ]; then $d/install-nvim-plugins.zsh; fi
@@ -29,4 +29,8 @@ if [ ! -d ~/git/rust-kart ]; then
             cargo install --force --path $f
         fi
     done
+fi
+
+if [ ! -d ~/var/play ]; then
+    git clone git@github.com:jeffs/play.git ~/var/play
 fi
