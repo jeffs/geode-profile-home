@@ -20,7 +20,7 @@ init = ["conf/bin/geode-init.zsh"]
 # or relative to your home directory.
 [bind]
 ".ssh" = ".ssh"
-"usr/share/geode/profiles/home" = "conf"
+"usr/share/geode/home" = "conf"
 Desktop = "desk"
 Downloads = "down"
 big = "big"
