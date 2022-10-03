@@ -47,7 +47,6 @@ alias u='c ..'
 alias uu='c ../..'
 alias uuu='c ../../..'
 alias py3='python3 -q'
-alias play='c ~/var/play && nvim src/bin/play.rs'
 for i in `seq 9`; do alias t$i="t -L$i"; done
 for s in br ci clone co di flog glog pull push st stash; do alias $s="git $s"; done
 
@@ -73,6 +72,16 @@ e() { ${EDITOR:-nvim} "$@"; }
 l() { ls -hl --color "$@" | $PAGER }
 la() { ls -Ahl --color "$@" | $PAGER }
 mc() { mkdir -p $1 && c $1; }
+
+play() {
+    cd ~/var/play
+    case $1; in
+        cpp) nvim src/main.cpp ;;
+        go) nvim src/main.go ;;
+        js|node) node ;;
+        rs|rust|'') nvim src/bin/play.rs ;;
+    esac
+}
 
 # Load nvm lazily, since merely sourcing its definition takes ~350ms.
 nvm() {
