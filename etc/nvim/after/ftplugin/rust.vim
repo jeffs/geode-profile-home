@@ -22,6 +22,7 @@ abbrev pl! println!
 
 " The cargo-norm program is part of rust-kart:
 " https://github.com/jeffs/rust-kart/blob/master/cargo-norm/src/main.rs
+nnoremap <buffer> <silent> <Leader>b :up<CR>:bel split \| te cargo build --bin `cargo-norm %`<CR>
 nnoremap <buffer> <silent> <Leader>c :up<CR>:bel split \| te cargo check --bin `cargo-norm %`<CR>
 nnoremap <buffer> <silent> <Leader>f :call MyRustFormat()<CR>
 nnoremap <buffer> <silent> <Leader>l :up<CR>:bel split \| te cargo clippy --bin `cargo-norm %`<CR>
