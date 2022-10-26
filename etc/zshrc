@@ -73,13 +73,15 @@ l() { ls -hl --color "$@" | $PAGER }
 la() { ls -Ahl --color "$@" | $PAGER }
 mc() { mkdir -p $1 && c $1; }
 
+# TODO: Support --reset and --rm flags.
 play() {
-    cd ~/var/play
+    cd ~/var/play/src
     case $1; in
-        cpp) nvim src/main.cpp ;;
-        go) nvim src/main.go ;;
+        cpp) e main.cpp ;;
+        go) e main.go ;;
+        html) e index.html ;;
         js|node) node ;;
-        rs|rust|'') nvim src/bin/play.rs ;;
+        rs|rust|'') e bin/play/main.rs ;;
     esac
 }
 
