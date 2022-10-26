@@ -48,6 +48,7 @@ ENV TZ={{.TimeZone}}
 #       file            # guesses file types
 #       git             # version control system
 #       jq              # parses, queries, transforms, and formats JSON
+#       inotify-tools   # use inotifywait to run commands when a file changes
 #       man             # manual page viewer
 #       markdown        # converts Markdown files to HTML
 #       cal (ncal)      # calendar
@@ -70,7 +71,7 @@ ENV TZ={{.TimeZone}}
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -qqy \
     build-essential clang-format cmake golang python3-pip python3-venv \
     curl file iputils-ping libssl-dev net-tools netcat-traditional rsync whois \
-    git jq man markdown ncal sudo zip \
+    git inotify-tools jq man markdown ncal sudo zip \
     bat fd-find neovim ripgrep sl tmux zsh \
     lsb-release wamerican \
  && python3 -m pip install mypy
