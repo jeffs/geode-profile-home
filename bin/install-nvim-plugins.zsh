@@ -26,11 +26,9 @@ for repo in  \
         mattn/emmet-vim \
         mbbill/undotree \
         preservim/nerdtree \
-        sheerun/vim-polyglot \
         tpope/vim-abolish; do
     upsert "$repo"
 done
 
 curl --output "$colors/smyck.vim" --show-error --silent \
     https://raw.githubusercontent.com/hukl/Smyck-Color-Scheme/master/smyck.vim
-
