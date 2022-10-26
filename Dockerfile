@@ -91,6 +91,9 @@ RUN curl -Ss https://apt.releases.hashicorp.com/gpg \
  && DEBIAN_FRONTEND=noninteractive apt-get update -qq \
  && DEBIAN_FRONTEND=noninteractive apt-get install terraform
 
+# Install Java.
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -qqy default-jdk-headless
+
 # Create myself, and give myself super powers.
 #
 # Enabling sudo coredumps works around a container bug that makes sudo unhappy:
