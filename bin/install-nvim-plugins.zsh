@@ -19,10 +19,10 @@ mkdir -p $colors $plugins
 
 # Other useful plugins include:
 #
-#   hashivim/vim-terraform
 #   rvesse/vim-sparql
 for repo in  \
         cespare/vim-toml \
+        hashivim/vim-terraform \
         mattn/emmet-vim \
         mbbill/undotree \
         preservim/nerdtree \
