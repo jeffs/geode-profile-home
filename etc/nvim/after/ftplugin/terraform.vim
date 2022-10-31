@@ -1,13 +1,37 @@
 setlocal iskeyword+=-
 
-" Align selected text into columns; e.g., key/value pairs.
-nnoremap <buffer> <silent> <Leader>f vi{!column -to ' '<CR>=i{
-vnoremap <buffer> <silent> <Leader>f !column -to ' '<CR>=ip
+if exists('b:my_terraform_loaded')
+        finish
+endif
+
+let b:my_terraform_loaded = 1
+
+if expand('%') == '/tmp/fmt.tf'
+	setlocal nohidden
+	nunmap q;
+	nunmap q:
+	nnoremap <buffer> q :q<CR>
+endif
 
 nnoremap <buffer> <silent> <Leader>c :up \| bel split term://terraform plan --var-file=terraform-dev.tfvars<CR>
+nnoremap <buffer> <silent> <Leader>f :call MyTerraformFormat()<CR>
 nnoremap <buffer> <silent> <Leader>r :up \| bel split term://terraform apply --var-file=terraform-dev.tfvars<CR>
 
 inoremap <buffer> <silent> <Esc> <Esc>:up<CR>
 nnoremap <buffer> <silent> <Esc> <Esc>:up<CR>
 inoremap <buffer> <C-g> <Esc>
 inoremap <buffer> <C-g> <Esc>
+
+if exists('*MyTerraformFormat')
+        finish
+endif
+
+function MyTerraformFormat()
+        update
+	silent !terraform fmt -list=false >& /tmp/fmt.tf
+	if -1 == match(readfile('/tmp/fmt.tf'), '\S')
+		edit
+	else
+		below split term://less -R /tmp/fmt.tf
+	endif
+endfunction
