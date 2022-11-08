@@ -28,6 +28,13 @@ nnoremap <silent> <Left> :previous<CR>
 nnoremap <silent> <Right> :next<CR>
 
 " Open a brace or paren delimited block.
+"
+" TODO:
+" * Automatically close open parens around the new block.
+" * Do the right thing in shell scripts:
+"   -  {} for functions
+"   -  do....done for loops,
+"   -  then....fi for if-statements
 inoremap <silent> <C-j> <Esc>:s/\s*{\=\s*$//<CR>A {<CR>}<C-o>O
 inoremap <silent> <C-Down> <Esc>:s/\%(\s*\)\@<=\%((\s*\)\=$//<CR>A(<CR>);<C-o>O
 

@@ -9,5 +9,5 @@ if docker container inspect geode-home >&/dev/null; then
     exit 1
 fi
 
-cd $(dirname $0)
+cd $(dirname $0)/..
 geode run . sh -c 'echo premount: Ready; perl -MPOSIX -e pause' </dev/null &

@@ -8,11 +8,13 @@ For use on the host machine:
 
     Dockerfile    Template for the file Geode passes to `docker image build`
     docker.toml   Settings for how Geode should create and run containers
+    sbin/         Scripts for managing resources; e.g., backing up volumes
 
 For use in the guest container:
 
     bin/          Executable scripts
     etc/          Config files for my shell, editor, etc.
+    wip/          Work in progress; config that's not ready for prime time
 
 ## Tips
 
