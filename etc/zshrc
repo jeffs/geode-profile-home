@@ -75,14 +75,14 @@ mc() { mkdir -p $1 && c $1; }
 
 # TODO: Support --reset and --rm flags.
 play() {
-    cd ~/var/play/src
+    cd ~/var/play
     case $1; in
-        c) e main.c;;
-        cpp) e main.cpp ;;
-        go) e main.go ;;
-        html) e index.html ;;
+        c) e src/main.c;;
+        cpp) e src/main.cpp ;;
+        go) e src/main.go ;;
+        html) e src/index.html ;;
         js|node) node ;;
-        rs|rust|'') e bin/play/main.rs ;;
+        rs|rust|'') e src/bin/play/main.rs ;;
     esac
 }
 
