@@ -13,12 +13,18 @@ if expand('%') == '/tmp/fmt.tf'
 	nnoremap <buffer> q :q<CR>
 endif
 
-nnoremap <buffer> <silent> <Leader>c :up \| bel split term://terraform plan --var-file=terraform-dev.tfvars<CR>
-nnoremap <buffer> <silent> <Leader>f :call MyTerraformFormat()<CR>
-nnoremap <buffer> <silent> <Leader>r :up \| bel split term://terraform apply --var-file=terraform-dev.tfvars<CR>
+"nnoremap <buffer> <silent> <Leader>c :up \| bel split term://terraform plan --var-file=terraform-dev.tfvars<CR>
+"nnoremap <buffer> <silent> <Leader>d :up \| bel split term://terraform destroy --var-file=terraform-dev.tfvars<CR>
+"nnoremap <buffer> <silent> <Leader>r :up \| bel split term://terraform apply --var-file=terraform-dev.tfvars<CR>
 
-inoremap <buffer> <silent> <Esc> <Esc>:up<CR>
-nnoremap <buffer> <silent> <Esc> <Esc>:up<CR>
+nnoremap <buffer> <silent> <Leader>c :up \| bel split term://terraform plan<CR>
+nnoremap <buffer> <silent> <Leader>d :up \| bel split term://terraform destroy<CR>
+nnoremap <buffer> <silent> <Leader>r :up \| bel split term://terraform apply<CR>
+
+nnoremap <buffer> <silent> <Leader>f :call MyTerraformFormat()<CR>
+
+"inoremap <buffer> <silent> <Esc> <Esc>:up<CR>
+"nnoremap <buffer> <silent> <Esc> <Esc>:up<CR>
 inoremap <buffer> <C-g> <Esc>
 inoremap <buffer> <C-g> <Esc>
 

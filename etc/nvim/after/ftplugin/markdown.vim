@@ -1,5 +1,5 @@
 "setlocal formatoptions+=a nowrap " Insert line breaks automatically.
-setlocal shiftwidth=4 softtabstop=-1
+setlocal shiftwidth=2 softtabstop=-1
 setlocal suffixesadd+=.md
 setlocal foldmethod=manual
 
