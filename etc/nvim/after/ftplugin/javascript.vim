@@ -3,6 +3,11 @@ setlocal number
 setlocal suffixesadd+=.js
 setlocal foldlevel=99
 
+" prettier default; see:
+" https://prettier.io/docs/en/options.html#print-width
+setlocal textwidth=80
+setlocal colorcolumn=+1
+
 if exists('b:my_js_loaded')
 	finish
 endif
@@ -27,7 +32,7 @@ endif
 
 function MyJSFormat()
 	update
-	silent !prettier --write % >& /tmp/fmt.js
+	silent !npx prettier --write % >& /tmp/fmt.js
 	if 1 < len(readfile('/tmp/fmt.js'))
 		below split /tmp/fmt.js
 	else

@@ -35,6 +35,8 @@ nnoremap <silent> <Right> :next<CR>
 "   -  {} for functions
 "   -  do....done for loops,
 "   -  then....fi for if-statements
+" * Do the right thing in VimL:
+"   -  if....endif
 inoremap <silent> <C-j> <Esc>:s/\s*{\=\s*$//<CR>A {<CR>}<C-o>O
 inoremap <silent> <C-Down> <Esc>:s/\%(\s*\)\@<=\%((\s*\)\=$//<CR>A(<CR>);<C-o>O
 

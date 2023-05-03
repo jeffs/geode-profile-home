@@ -16,19 +16,29 @@ endif
 abbrev a! assert!
 abbrev ae! assert_eq!
 abbrev an! assert_ne!
+abbrev d! dbg!
 abbrev f! format!
 abbrev p! print!
 abbrev pl! println!
 
-" The cargo-norm program is part of rust-kart:
-" https://github.com/jeffs/rust-kart/blob/master/cargo-norm/src/main.rs
-nnoremap <buffer> <silent> <Leader>b :up<CR>:bel split \| te cargo build --bin `cargo-norm %`<CR>
-nnoremap <buffer> <silent> <Leader>c :up<CR>:bel split \| te cargo check --bin `cargo-norm %`<CR>
+let _ = system("test -f ${PWD%/src*}/src/main.rs")
+if v:shell_error == 0
+	nnoremap <buffer> <silent> <Leader>b :up<CR>:bel split \| te cargo build<CR>
+	nnoremap <buffer> <silent> <Leader>c :up<CR>:bel split \| te cargo check<CR>
+	nnoremap <buffer> <silent> <Leader>l :up<CR>:bel split \| te cargo clippy<CR>
+	nnoremap <buffer> <silent> <Leader>r :up<CR>:bel split \| te cargo run<CR>
+	nnoremap <buffer> <silent> <Leader>t :up<CR>:bel split \| te cargo test<CR>
+else
+	" The cargo-norm program is part of rust-kart:
+	" https://github.com/jeffs/rust-kart/blob/master/cargo-norm/src/main.rs
+	nnoremap <buffer> <silent> <Leader>b :up<CR>:bel split \| te cargo build --bin `cargo-norm %`<CR>
+	nnoremap <buffer> <silent> <Leader>c :up<CR>:bel split \| te cargo check --bin `cargo-norm %`<CR>
+	nnoremap <buffer> <silent> <Leader>l :up<CR>:bel split \| te cargo clippy --bin `cargo-norm %`<CR>
+	nnoremap <buffer> <silent> <Leader>r :up<CR>:bel split \| te cargo run --bin `cargo-norm %`<CR>
+	nnoremap <buffer> <silent> <Leader>t :up<CR>:bel split \| te cargo test --bin `cargo-norm %` -- --nocapture<CR>
+endif
+
 nnoremap <buffer> <silent> <Leader>f :call MyRustFormat()<CR>
-nnoremap <buffer> <silent> <Leader>l :up<CR>:bel split \| te cargo clippy --bin `cargo-norm %`<CR>
-nnoremap <buffer> <silent> <Leader>r :up<CR>:bel split \| te cargo run --bin `cargo-norm %`<CR>
-nnoremap <buffer> <silent> <Leader>t :up<CR>:bel split \| te cargo test --bin `cargo-norm %` -- --nocapture<CR>
-"nnoremap <buffer> <silent> <Leader>t :up<CR>:bel split \| te RUST_BACKTRACE=1 cargo test --bin `cargo-norm %` minus -- --nocapture<CR>
 
 inoremap <buffer> <silent> <Esc> <Esc>:up<CR>
 nnoremap <buffer> <silent> <Esc> <Esc>:up<CR>

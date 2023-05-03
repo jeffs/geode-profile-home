@@ -76,6 +76,12 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -qqy \
     lsb-release wamerican \
  && python3 -m pip install mypy
 
+# Ensure prerequisites for pyenv.  See:
+# https://stackoverflow.com/a/74314165/3116635
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -qqy \
+    build-essential zlib1g-dev libffi-dev libssl-dev libbz2-dev \
+    libreadline-dev libsqlite3-dev liblzma-dev
+
 # Install a web browser so I can run (headless) JavaScript test drivers.
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -qqy firefox
 
@@ -86,11 +92,11 @@ RUN curl -OSs https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip \
  && rm -fr aws awscli-exe-linux-x86_64.zip
 
 # Install the Terraform CLI.
-RUN curl -Ss https://apt.releases.hashicorp.com/gpg \
-        | gpg --dearmor > /usr/share/keyrings/hashicorp-archive-keyring.gpg \
- && echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" > /etc/apt/sources.list.d/hashicorp.list \
- && DEBIAN_FRONTEND=noninteractive apt-get update -qq \
- && DEBIAN_FRONTEND=noninteractive apt-get install terraform
+# RUN curl -Ss https://apt.releases.hashicorp.com/gpg \
+#         | gpg --dearmor > /usr/share/keyrings/hashicorp-archive-keyring.gpg \
+#  && echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" > /etc/apt/sources.list.d/hashicorp.list \
+#  && DEBIAN_FRONTEND=noninteractive apt-get update -qq \
+#  && DEBIAN_FRONTEND=noninteractive apt-get install terraform
 
 # Install Java.
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -qqy default-jdk-headless

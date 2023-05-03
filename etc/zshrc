@@ -54,8 +54,7 @@ for s in br ci clone co di flog glog pull push st stash; do alias $s="git $s"; d
 # don't pass --git-ignore.
 
 alias tree='exa --group-directories-first --tree'
-alias t=tree
-alias ti='tree --git-ignore'
+alias t='tree --git-ignore'
 
 # FUNCTIONS
 
@@ -75,14 +74,24 @@ mc() { mkdir -p $1 && c $1; }
 
 # TODO: Support --reset and --rm flags.
 play() {
-    cd ~/var/play
     case $1; in
         c) e src/main.c;;
         cpp) e src/main.cpp ;;
         go) e src/main.go ;;
         html) e src/index.html ;;
+        py)
+            cd ~/var/play/py
+            eval "$(pyenv init -)"
+            source bin/activate
+            e src/__main__.py
+            ;;
+        java) e src/main/java/Main.java ;;
+        scala) e src/main/scala/Main.scala ;;
         js|node) node ;;
-        rs|rust|'') e src/bin/play/main.rs ;;
+        rs|rust|'')
+            cd ~/var/play/rs
+            e src/main.rs
+            ;;
     esac
 }
 
@@ -92,7 +101,6 @@ nvm() {
     if [ ! -d ~/.nvm ]; then
         ~/conf/bin/install-node.zsh || return 1
     fi
-
     unset -f nvm
     export NVM_DIR=~/.nvm
     source $NVM_DIR/nvm.sh
@@ -101,6 +109,7 @@ nvm() {
     export PATH="$HOME/.nvm/versions/node/$(nvm current)/bin:$PATH"
 }
 
+# TODO: Specify --lts only if .nvmrc is not found in any ancestor directory.
 for command in node npm npx yarn; do
     $command() {
         unset -f node npm npx yarn
@@ -109,6 +118,17 @@ for command in node npm npx yarn; do
     }
 done
 unset command
+
+# Load pyenv lazily.
+pyenv() {
+    # Install NVM if necessary.
+    if [ ! -d ~/.pyenv ]; then
+        curl https://pyenv.run | bash
+    fi
+    unset -f pyenv
+    #eval "$(pyenv init -)"
+    pyenv "$@"
+}
 
 # Load Scala support lazily, to avoid slowing shell startup.
 sbt() {

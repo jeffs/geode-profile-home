@@ -14,6 +14,11 @@ endif
 
 setlocal textwidth=79
 
+inoremap <buffer> <silent> <Esc> <Esc>:up<CR>
+nnoremap <buffer> <silent> <Esc> <Esc>:up<CR>
+inoremap <buffer> <C-g> <Esc>
+inoremap <buffer> <C-g> <Esc>
+
 nnoremap <buffer> <silent> <Leader>c :up\|!mypy %<CR>
 nnoremap <buffer> <silent> <Leader>i :up\|call MyPythonRepl()<CR><CR>
 nnoremap <buffer> <silent> <Leader>f :call MyPythonFormat()<CR>
